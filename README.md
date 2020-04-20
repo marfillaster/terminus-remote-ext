@@ -15,7 +15,7 @@ This plugin requires no configuration to use.
 
 Resolve sFTP host to IP using [`gethostbynamel`](https://www.php.net/manual/en/function.gethostbynamel.php)
 ```
-terminus remote-ext:wp site.env
+terminus remote-ext:resolve-host site.env
 ```
 
 
