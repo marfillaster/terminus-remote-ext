@@ -1,0 +1,13 @@
+{
+    "name": "marfillaster/terminus-remote-ext",
+    "description": "More remote commands",
+    "type": "terminus-plugin",
+    "autoload": {
+        "psr-4": { "Pantheon\\RemoteExt\\": "src" }
+    },
+    "extra": {
+        "terminus": {
+            "compatible-version": "2.*"
+        }
+    }
+}
