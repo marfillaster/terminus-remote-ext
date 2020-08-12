@@ -1,6 +1,9 @@
 <?php
 
 namespace Pantheon\RemoteExt\Commands;
+use Consolidation\AnnotatedCommand\AnnotationData;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputOption;
 
 class WPCommand extends SSHBaseCommand
 {
@@ -30,6 +33,14 @@ class WPCommand extends SSHBaseCommand
     {
         $this->prepareEnvironment($site_env);
         $this->setProgressAllowed($options['progress']);
-        return $this->executeCommand($wp_command, ['ssh_host' => $options['ssh_host']]);
+        return $this->executeCommand($wp_command,  $options);
+    }
+
+    /**
+     * @hook option remote-ext:wp
+     */
+    public function additionalOption(Command $command, AnnotationData $annotationData)
+    {
+        $command->addOption('ssh_o', 'o', InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY, 'Add SSH more options');
     }
 }
